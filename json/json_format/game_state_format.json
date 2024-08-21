@@ -1,0 +1,66 @@
+{
+  "jsonSet":false,
+  "gameSet":false,
+  "players": [
+    {
+      "name": "player1",
+      "ships": [
+        {
+            "type": "destroyer",
+            "cells": [ 
+                {
+                    "is_hit": true,
+                    "position": 2,
+                    "hidden_letter":""
+                },
+                {
+                    "is_hit": false,
+                    "position": "",
+                    "hidden_letter":""
+                }
+            ],
+            "alignment": ""  
+        },
+        {
+          "type": "destroyer",
+          "cells": [ 
+              {
+                  "is_hit": false,
+                  "position": "",
+                  "hidden_letter":""
+              },
+              {
+                  "is_hit": false,
+                  "position": "",
+                  "hidden_letter":""
+              }
+          ],
+          "alignment": ""  
+      },
+      {
+        "type": "destroyer",
+        "cells": [ 
+            {
+                "is_hit": false,
+                "position": "",
+                "hidden_letter":""
+            },
+            {
+                "is_hit": false,
+                "position": "",
+                "hidden_letter":""
+            }
+        ],
+        "alignment": ""  
+    }
+    ],
+
+    "guesses": [
+    ]
+
+    }, 
+    {
+        "name": "player2" 
+    }
+  ]
+}

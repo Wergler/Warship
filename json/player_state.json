@@ -1,0 +1,49 @@
+//The Player Basetype
+{
+  "type": "object",
+  "properties": {
+    "ships": [
+        {
+            "type": "destroyer",
+            "cells": [ 
+                {
+                    "is_hit": false,
+                    "position": "D9",
+                    "hidden_letter":"m"
+                },
+                {
+                    "is_hit": false,
+                    "position": "E9",
+                    "hidden_letter":"e"
+                }
+            ],
+            "alignment": "vertical"  
+        }
+    ],
+
+    "guesses": [
+        "B1",
+        "E6"
+    ]
+  }
+}
+
+
+"type": "object",
+"properties": {
+  // number of wheels
+  "wheels": {
+    "type": "integer"
+  },
+  // number of doors
+  "doors": {
+    "type": "integer"
+  },
+  // brand of car
+  "make": {
+    "type": "string"
+  },
+  // model of car
+  "model": {
+    "type": "string"
+  }

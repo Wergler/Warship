@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" href="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/jquery/jquery-ui-1.14.0/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://website-8a342075.fyl.rbc.mybluehost.me/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://website-8a342075.fyl.rbc.mybluehost.me/css/homesite.css">
+
+    <title>Warship</title>
+</head>
+<body>
+   <div id="shader">
+   </div>
+   <!--<canvas id="grid-background" width="500" height="500">Error, canvas is not supported</canvas>-->
+    <div class="grid-container">
+        <canvas id="grid-player" class="grid" width="500" height="500" style="background: url('../images/sea.png')">Error, canvas is not supported</canvas>
+        <!--<div class="btn-container">
+        <button onclick="placeShip(2)" class="ship-btn">↺</button>
+        <button onclick="placeShip(2)" class="ship-btn">↻</button>
+        <button onclick="placeShip(2)" class="ship-btn">Destroyer</button>
+        <button onclick="placeShip(3)" class="ship-btn">Submarine</button>
+        <button onclick="placeShip(2)" class="ship-btn">Cruiser</button>
+        <button onclick="placeShip(2)" class="ship-btn">Battleship</button>
+        <button onclick="placeShip(2)" class="ship-btn">Carrier</button>
+        </div>-->
+    </div>
+    <div class="grid-container">
+        <canvas id="grid-opponent" class="grid" width="500" height="500" style="background: url('../images/sea.png')">Error, canvas is not supported</canvas>
+    </div>
+    <div id="dialog" title="Menu">
+        <h2>Welcome to Warship.</h2>
+        <h3>The strategic game that teaches you spelling.</h3>
+    </div>
+    <!--<button onclick="placeShips()">yeet</button>-->
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/jquery/jquery-3.7.1.min.js"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/jquery/jquery-ui-1.14.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/bootstrap/js/bootstrap.js"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/variables.js"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/window_state.js" type="module"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/canvas_state.js"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/canvas_functions.js"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/grid_functions.js"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/menu_functions.js"></script>
+    <script src="https://website-8a342075.fyl.rbc.mybluehost.me/javascript/basic_functions.js"></script>
+    <script type="module">
+        import { init, update } from "../javascript/window_state.js"
+        $("#dialog").dialog({
+            autoOpen: true,
+            draggable: false,
+            resizable: false,
+            width:  $("#grid-player").width()/1.2,
+            height: $("#grid-player").height()/1.2,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            },
+            close: function() { 
+                gameStart = true;
+                update();
+            } 
+        }); 
+
+        $(document).ready(function(){
+        $(window).on( "resize", update);
+        $(document).on('jsonready', init);
+        getGameState();
+      });
+    </script>
+    <!--<script src="../canvas_drawing/gridOptions.js"></script>-->
+    <!--<script src="../canvas_objects/spaceship.js"></script>-->
+    <span style="font-family: 'VT323'"></span>
+</body>
+</html>
